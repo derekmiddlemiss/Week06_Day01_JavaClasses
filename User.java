@@ -1,13 +1,13 @@
 class User{
   private String name;
   private int age;
-  private boolean overdues; 
+  private boolean borrowingRights; 
   private Book[] loans;
 
-  public User( String name, int age, boolean overdues){
+  public User( String name, int age, boolean borrowingRights){
     this.name = name;
     this.age = age;
-    this.overdues = overdues;
+    this.borrowingRights = borrowingRights;
     this.loans = new Book[10];
   }
 
@@ -19,6 +19,18 @@ class User{
     return this.age;
   }
   
+  public boolean getBorrowingRights(){
+    return this.borrowingRights;
+  }
 
+  public int loanCount(){
+    int count = 0;
+    for ( Book book : this.loans ){
+      if ( book != null ){
+        count++;
+      }
+    }
+    return count;
+  }
 
 }

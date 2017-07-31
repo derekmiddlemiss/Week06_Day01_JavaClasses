@@ -27,4 +27,14 @@ public class UserBookTest{
     assertEquals( 22, byron.getAge() );
   }
 
+  @Test
+  public void userCannotBorrowBooks(){
+    assertEquals( false, byron.getBorrowingRights() );
+  }
+
+  @Test
+  public void noLoansToStartWith(){
+    assertEquals( 0, byron.loanCount() );
+  }
+
 }
