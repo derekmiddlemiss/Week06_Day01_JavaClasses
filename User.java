@@ -15,7 +15,9 @@ class User{
     return this.name;
   }
 
-  
+  public int getAge(){
+    return this.age;
+  }
   
 
 
