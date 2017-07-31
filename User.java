@@ -23,6 +23,10 @@ class User{
     return this.borrowingRights;
   }
 
+  public void setBorrowingRights( boolean value ){
+    this.borrowingRights = value;
+  }
+
   public int loanCount(){
     int count = 0;
     for ( Book book : this.loans ){
@@ -38,7 +42,7 @@ class User{
   }
 
   public void borrow( Book book ){
-    if ( loanSlotAvailable() == false ){
+    if ( loanSlotAvailable() == false || getBorrowingRights() == false ){
       return;
     }
     loans[ loanCount() ] = book;

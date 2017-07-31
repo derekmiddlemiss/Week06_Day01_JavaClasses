@@ -8,7 +8,7 @@ public class UserBookTest{
 
   @Before
   public void before(){
-    byron = new User( "Lord Byron", 22, false );
+    byron = new User( "Lord Byron", 22, true );
     catcher = new Book( "Catcher in the Rye" );
   }
 
@@ -28,8 +28,8 @@ public class UserBookTest{
   }
 
   @Test
-  public void userCannotBorrowBooks(){
-    assertEquals( false, byron.getBorrowingRights() );
+  public void userCanBorrowBooks(){
+    assertEquals( true, byron.getBorrowingRights() );
   }
 
   @Test
@@ -54,6 +54,13 @@ public class UserBookTest{
       byron.borrow( catcher );
     }
     assertEquals( 10, byron.loanCount() );
+  }
+
+  @Test
+  public void cannotBorrowNoRights(){
+    byron.setBorrowingRights( false );
+    byron.borrow( catcher );
+    assertEquals( 0, byron.loanCount() );
   }
 
 }
