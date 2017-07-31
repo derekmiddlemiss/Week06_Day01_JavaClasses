@@ -49,6 +49,50 @@ class Library{
     stock[ stockCount() ] = book;
   }
 
+  public void deleteBook( Book searchBook){
+    int position = 0;
+    boolean found = false;
+    for ( Book book : this.stock ){
+
+      if ( book == searchBook ){
+        found = true;
+      }
+
+      if ( found == true && position < stock.length - 1 ){
+        stock[ position ] = stock[ position + 1 ];
+      }
+
+      position++;
+
+    }
+  }
+
+  public boolean userInUsers( User searchUser){
+    for ( User user : this.users ){
+      if ( user == searchUser){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public void lendBook( User user, Book book ){
+
+    // System.out.println("Got to 1");
+
+    if ( this.userInUsers( user ) ){
+
+      // System.out.println("Got to 2");
+
+      boolean borrowed;
+      borrowed = user.borrow( book );
+
+      if ( borrowed ){
+        this.deleteBook( book );
+      }
+
+    }
+  }
 
 }
 

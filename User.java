@@ -41,11 +41,12 @@ public class User{
     return !( loanCount() == loans.length );
   }
 
-  public void borrow( Book book ){
+  public boolean borrow( Book book ){
     if ( loanSlotAvailable() == false || getBorrowingRights() == false ){
-      return;
+      return false;
     }
     loans[ loanCount() ] = book;
+    return true;
   }
 
 }

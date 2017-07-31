@@ -50,4 +50,22 @@ public class LibraryTest{
     assertEquals( 1, beatRomantics.stockCount() );
   }
 
+  @Test
+  public void deleteABook(){
+    beatRomantics.addBook( cuckoo );
+    beatRomantics.addBook( catch22 );
+    beatRomantics.deleteBook( cuckoo );
+    assertEquals( 1, beatRomantics.stockCount() );
+  }
+
+  @Test
+  public void lendBookUser(){
+    beatRomantics.addBook( cuckoo );
+    beatRomantics.addBook( catch22 );
+    beatRomantics.addUser( byron );
+    beatRomantics.lendBook( byron, cuckoo );
+    assertEquals( 1, byron.loanCount() );
+    assertEquals( 1, beatRomantics.stockCount() );
+  }
+
 }
