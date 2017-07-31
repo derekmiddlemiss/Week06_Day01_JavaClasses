@@ -35,5 +35,20 @@ class Library{
     return !( usersCount() == users.length );
   }
 
+  public void addUser( User user ){
+    if ( usersSlotAvailable() == false ) {
+      return;
+    }
+    users[ usersCount() ] = user;
+  }
+
+  public void addBook( Book book ){
+    if ( stockSlotAvailable() == false ) {
+      return;
+    }
+    stock[ stockCount() ] = book;
+  }
+
+
 }
 

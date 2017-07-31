@@ -5,37 +5,49 @@ public class LibraryTest{
 
   User byron;
   User shelley;
-  Book catcher;
+  Book cuckoo;
   Book catch22;
-  Library romantics;
+  Library beatRomantics;
 
   @Before
   public void before(){
-    byron = new User( "Lord Byron", 22, false );
+    byron = new User( "Lord Byron", 22, true );
     shelley = new User( "Percy Shelley", 24, true );
-    catcher = new Book( "Catcher in the Rye" );
+    cuckoo = new Book( "One Flew Over the Cuckoo's Nest" );
     catch22 = new Book( "Catch 22" );
-    romantics = new Library();
+    beatRomantics = new Library();
   }
 
   @Test
   public void usersEmptyAtConstruction(){
-    assertEquals( 0, romantics.usersCount() );
+    assertEquals( 0, beatRomantics.usersCount() );
   }
 
   @Test
   public void stockEmptyAtConstruction(){
-    assertEquals( 0, romantics.stockCount() );
+    assertEquals( 0, beatRomantics.stockCount() );
   }
 
   @Test
   public void stockSlotAvailable(){
-    assertEquals( true, romantics.stockSlotAvailable() );
+    assertEquals( true, beatRomantics.stockSlotAvailable() );
   }
 
   @Test
   public void usersSlotAvailable(){
-    assertEquals( true, romantics.usersSlotAvailable() );
+    assertEquals( true, beatRomantics.usersSlotAvailable() );
+  }
+
+  @Test
+  public void addAUser(){
+    beatRomantics.addUser( byron );
+    assertEquals( 1, beatRomantics.usersCount() );
+  }
+
+  @Test
+  public void addABook(){
+    beatRomantics.addBook( cuckoo );
+    assertEquals( 1, beatRomantics.stockCount() );
   }
 
 }
