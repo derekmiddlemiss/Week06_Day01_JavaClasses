@@ -37,4 +37,11 @@ class User{
     return !( loanCount() == loans.length );
   }
 
+  public void borrow( Book book ){
+    if ( loanSlotAvailable() == false ){
+      return;
+    }
+    loans[ loanCount() ] = book;
+  }
+
 }

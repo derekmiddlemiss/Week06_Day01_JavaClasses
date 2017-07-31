@@ -42,4 +42,18 @@ public class UserBookTest{
     assertEquals( true, byron.loanSlotAvailable() );
   }
 
+  @Test
+  public void borrowBook(){
+    byron.borrow( catcher );
+    assertEquals( 1, byron.loanCount() );
+  }
+
+  @Test
+  public void borrowNoMoreThanTen(){
+    for ( int i = 0; i < 15; i++){
+      byron.borrow( catcher );
+    }
+    assertEquals( 10, byron.loanCount() );
+  }
+
 }
