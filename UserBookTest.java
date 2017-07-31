@@ -1,7 +1,7 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.*;
 
-public class UserTest{
+public class UserBookTest{
 
   User byron;
   Book catcher;
@@ -15,6 +15,16 @@ public class UserTest{
   @Test
   public void bookHasTitle(){
     assertEquals( "Catcher in the Rye", catcher.getTitle() );
+  }
+
+  @Test
+  public void userHasName(){
+    assertEquals( "Lord Byron", byron.getName() );
+  }
+
+  @Test
+  public void userHasAge(){
+    assertEquals( 22, byron.getAge() );
   }
 
 }

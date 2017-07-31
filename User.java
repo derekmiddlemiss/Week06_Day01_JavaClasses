@@ -11,6 +11,12 @@ class User{
     this.loans = new Book[10];
   }
 
+  public String getName(){
+    return this.name;
+  }
+
   
+  
+
 
 }
