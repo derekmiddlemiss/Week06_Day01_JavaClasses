@@ -33,4 +33,8 @@ class User{
     return count;
   }
 
+  public boolean loanSlotAvailable(){
+    return !( loanCount() == loans.length );
+  }
+
 }

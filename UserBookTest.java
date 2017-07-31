@@ -37,4 +37,9 @@ public class UserBookTest{
     assertEquals( 0, byron.loanCount() );
   }
 
+  @Test
+  public void loanSlotAvailable(){
+    assertEquals( true, byron.loanSlotAvailable() );
+  }
+
 }
